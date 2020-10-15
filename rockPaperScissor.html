@@ -62,7 +62,7 @@
                 }
 
             } else {
-               // incorrect entry
+                // incorrect entry
             }
 
             var message = "";
@@ -78,6 +78,27 @@
 
         }
 
+        function getInput() {
+
+            let noInput = true;
+            let playerSelectionIn = "";
+
+            while (noInput) {
+
+                let playerSelectionAny = prompt("Enter your selection (paper, scissor or rock): ");
+                playerSelectionIn = playerSelectionAny.toLowerCase();
+
+                if (options.includes(playerSelectionIn)) {
+                    noInput = false;
+                } else {
+                    console.log("Incorrect input. Please enter: paper, scissor or rock")
+                }
+            }
+
+            return playerSelectionIn;
+
+        }
+
 
         function game() {
 
@@ -86,10 +107,10 @@
             computerWins = 0;
             draws = 0;
 
-            for (i = 0; i <= 5; i++) {
+            for (i = 0; i < 5; i++) {
 
-                const playerSelectionAny = prompt("Enter your selection: ");
-                const playerSelection = playerSelectionAny.toLowerCase();
+                const gameNo = i + 1;
+                const playerSelection = getInput();
                 const computerSelection = computerPlay();
 
                 console.log("Player selection:", playerSelection);
@@ -97,7 +118,7 @@
                 gameReturn = playRound(playerSelection, computerSelection);
                 gameMessage = gameReturn[0];
                 gameWinner = gameReturn[1];
-                console.log(gameMessage);
+                console.log("Game " + gameNo + ": " + gameMessage);
 
                 if (gameWinner === "player") {
                     playerWins++;
@@ -111,11 +132,11 @@
             console.log("*******************************************");
 
             if (playerWins > computerWins) {
-                console.log("Player wins " + playerWins + " vs " + computerWins);
+                console.log("Player wins: " + playerWins + " vs " + computerWins);
             } else if (computerWins > playerWins) {
-                console.log("Computer wins " + computerWins + " vs " + playerWins);
+                console.log("Computer wins: " + computerWins + " vs " + playerWins);
             } else {
-                console.log("No winner");
+                console.log("Its a tie: " +  playerWins + " vs " + computerWins);
             }
         }
 
@@ -123,4 +144,5 @@
 
     </script>
 </body>
+
 </html>
