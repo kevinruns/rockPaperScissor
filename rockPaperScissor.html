@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+</head>
+
+<body>
+
+    <script>
+
+        var options = ["paper", "scissor", "rock"];
+
+        function computerPlay() {
+
+            // return random selection
+            rand = math.floor(math.random() * 3);
+            return options[rand];
+
+        }
+
+        function playRound(playerSelection, computerSelection) {
+
+            var winner = "none";
+
+            if (playerSelection === "paper") {
+
+                if (computerSelection === "paper") {
+                    winner = "none";
+                } else if (computerSelection === "scissor") {
+                    winner = "computer";
+                } else if (computerSelection === "rock") {
+                    winner = "player";
+                } else {
+                    // incorrect entry
+                }
+
+            } else if (playerSelection === "scissor") {
+
+                if (computerSelection === "paper") {
+                    winner = "player";
+                } else if (computerSelection === "scissor") {
+                    winner = "none";
+                } else if (computerSelection === "rock") {
+                    winner = "computer";
+                } else {
+                    // incorrect entry
+                }
+
+            } else if (playerSelection === "rock") {
+                if (computerSelection === "paper") {
+                    winner = "computer";
+                } else if (computerSelection === "scissor") {
+                    winner = "player";
+                } else if (computerSelection === "rock") {
+                    winner = "none";
+                } else {
+                    // incorrect entry
+                }
+
+            } else {
+               // incorrect entry
+            }
+
+            var message = "";
+            if (winner === "computer") {
+                message = "You lose! " + computerSelection + " beats " + playerSelection;
+            } else if (winner === "player") {
+                message = "You win! " + playerSelection + " beats " + computerSelection;
+            } else {
+                message = "No winner";
+            }
+
+            return [message, winner];
+
+        }
+
+
+        function game() {
+
+            gameMessage = "";
+            playerWins = 0;
+            computerWins = 0;
+            draws = 0;
+
+            for (i = 0; i <= 5; i++) {
+
+                const playerSelectionAny = prompt("Enter your selection: ");
+                const playerSelection = playerSelectionAny.toLowerCase();
+                const computerSelection = computerPlay();
+
+                console.log("Player selection:", playerSelection);
+                console.log("Computer selection:", computerSelection);
+                gameReturn = playRound(playerSelection, computerSelection);
+                gameMessage = gameReturn[0];
+                gameWinner = gameReturn[1];
+                console.log(gameMessage);
+
+                if (gameWinner === "player") {
+                    playerWins++;
+                } else if (gameWinner === "computer") {
+                    computerWins++;
+                } else {
+                    draws++;
+                }
+            }
+
+            console.log("*******************************************");
+
+            if (playerWins > computerWins) {
+                console.log("Player wins " + playerWins + " vs " + computerWins);
+            } else if (computerWins > playerWins) {
+                console.log("Computer wins " + computerWins + " vs " + playerWins);
+            } else {
+                console.log("No winner");
+            }
+        }
+
+        game();
+
+    </script>
+</body>
+</html>
