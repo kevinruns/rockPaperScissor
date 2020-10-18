@@ -1,0 +1,95 @@
+html {
+    font-size: 14px;
+    /*    background: url('https://i.imgur.com/b9r5sEL.jpg') bottom center;
+    background-size: cover; */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    position: relative;
+}
+
+#container {
+
+    position: relative;
+    left: 20px;
+
+}
+
+#buttons {
+
+    position: absolute;
+    top: 30px;
+    left: 20px;
+
+}
+
+#result {
+
+    position: absolute;
+    top: 120px;
+    left: 60px;
+    color: blue;
+
+}
+
+#score {
+
+    position: absolute;
+    top: 160px;
+    left: 60px;
+    font-weight: bold;
+
+}
+
+#playerSelection {
+
+    position: absolute;
+    top: 80px;
+    left: 60px;
+
+}
+
+#computerSelection {
+
+    position: absolute;
+    top: 100px;
+    left: 60px;
+
+}
+
+#gameOver {
+
+    position: absolute;
+    top: 220px;
+    left: 60px;
+    font-weight: bold;
+    font-size: 16px;
+    color: red;
+}
+
+
+button {
+
+    background-color: rgb(236, 236, 236);
+    border: none;
+    color: rgb(6, 24, 128);
+    margin: 0px 10px;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
+button:hover {
+
+    border: 1px solid#ccc;
+    border-radius: 0px;
+    border-color: grey;
+ 
+    color: rgb(24, 24, 24);
+
+}
